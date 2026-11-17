@@ -1,1 +1,12 @@
-{"pet":"Magnet the Fridge Gremlin","caretaker":"Leo","pieces":[]}
+{
+ "pet": "Magnet the Fridge Gremlin",
+ "caretaker": "Leo",
+ "pieces": [
+  {
+   "file": "pieces/20261117-c8f4015d.jpg",
+   "title": "An eye, one tear",
+   "by": "Leo",
+   "at": "2026-11-17T11:45:09+00:00"
+  }
+ ]
+}
