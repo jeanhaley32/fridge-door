@@ -7,47 +7,74 @@
 <meta name="description" content="Quick art, pinned up. Food for Magnet the Fridge Gremlin.">
 <style>
 :root{
-  --enamel:#e9e6df; --enamel-deep:#d6d2c8; --steel:#b9bcc0; --steel-dark:#7d8186;
-  --paper:#fffdf6; --ink:#2b2a27; --muted:#6f6b63; --rule:#cfcac0;
-  --red:#d2452d; --blue:#2f6fb0; --yellow:#e5b52a; --green:#4f8f4a;
+  --enamel:#8fd3c7; --enamel-light:#b9e6dd; --enamel-deep:#5fb3a6; --wall:#efe4c8;
+  --chrome:#f4f6f7; --chrome-mid:#b8bec4; --chrome-dark:#6c737a;
+  --paper:#fffaea; --ink:#2b2a27; --muted:#6f6b63; --rule:#d9d2bd;
+  --cherry:#d2452d; --mustard:#e3b42c; --sky:#3f84b8; --avocado:#7a8f3a;
 }
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
 body{
-  background:
-    linear-gradient(90deg, rgba(0,0,0,.08), rgba(0,0,0,0) 6%, rgba(0,0,0,0) 94%, rgba(0,0,0,.10)),
-    linear-gradient(180deg, var(--enamel) 0%, var(--enamel-deep) 100%);
+  background: radial-gradient(ellipse at 50% 0%, #f7efd9 0%, var(--wall) 60%, #e3d6b4 100%);
   color:var(--ink);
-  font-family: "Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;
+  font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;
   line-height:1.45;
+  padding:28px 12px 60px;
 }
+.fridge{
+  max-width:1120px; margin:0 auto; border-radius:34px; position:relative;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,0) 18%, rgba(0,0,0,0) 82%, rgba(0,0,0,.16) 100%),
+    linear-gradient(180deg, var(--enamel-light) 0%, var(--enamel) 22%, var(--enamel) 78%, var(--enamel-deep) 100%);
+  box-shadow: 0 30px 60px rgba(60,40,10,.28), inset 0 2px 0 rgba(255,255,255,.6), inset 0 -3px 0 rgba(0,0,0,.18);
+  border:3px solid var(--chrome-mid);
+  overflow:visible;
+}
+.freezer{
+  position:relative; height:118px; border-radius:31px 31px 0 0; border-bottom:4px solid var(--chrome-mid);
+  background:linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,0) 60%);
+}
+.freezer::after{ /* chrome trim line under the freezer door */
+  content:""; position:absolute; left:0; right:0; bottom:-10px; height:6px;
+  background:linear-gradient(180deg,var(--chrome),var(--chrome-mid) 55%,var(--chrome-dark));
+}
+.badge{
+  position:absolute; left:40px; top:34px; padding:8px 22px 9px; border-radius:40px;
+  background:linear-gradient(180deg,#ffffff,var(--chrome-mid) 70%,var(--chrome-dark));
+  box-shadow:0 2px 4px rgba(0,0,0,.3), inset 0 1px 0 #fff;
+  font-family:"Brush Script MT","Snell Roundhand","Apple Chancery","URW Chancery L",cursive;
+  font-size:30px; font-style:italic; color:#2f3a3c; letter-spacing:.02em; white-space:nowrap;
+}
+.badge small{display:block; font-family:Futura,"Century Gothic","Trebuchet MS",sans-serif; font-style:normal; font-size:9px; letter-spacing:.32em; text-transform:uppercase; text-align:center; margin-top:-4px; color:#4b5457}
 .handle{
-  position:fixed; right:18px; top:12vh; width:22px; height:46vh; border-radius:12px;
-  background:linear-gradient(90deg,var(--steel-dark),var(--steel) 45%,#eef0f2 60%,var(--steel));
-  box-shadow: 2px 4px 10px rgba(0,0,0,.25); pointer-events:none;
+  position:absolute; right:54px; width:220px; height:26px; border-radius:13px;
+  background:linear-gradient(180deg,#fff 0%,var(--chrome) 30%,var(--chrome-mid) 65%,var(--chrome-dark) 100%);
+  box-shadow:0 5px 10px rgba(0,0,0,.35), inset 0 -2px 0 rgba(0,0,0,.2); pointer-events:none;
 }
-.handle::before,.handle::after{
-  content:""; position:absolute; left:-10px; width:42px; height:14px; border-radius:7px;
-  background:linear-gradient(180deg,#d7d9dc,var(--steel-dark)); box-shadow:1px 2px 4px rgba(0,0,0,.25);
+.handle.top{top:58px}
+.handle.main{top:150px}
+.handle::before{ /* the thumb latch */
+  content:""; position:absolute; left:-18px; top:-9px; width:44px; height:44px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #fff, var(--chrome-mid) 55%, var(--chrome-dark));
+  box-shadow:0 3px 6px rgba(0,0,0,.35);
 }
-.handle::before{top:-6px} .handle::after{bottom:-6px}
-main{max-width:1100px; margin:0 auto; padding:28px 16px 80px; padding-right:max(16px, 56px)}
-header{display:flex; flex-wrap:wrap; gap:16px 28px; align-items:flex-end; margin-bottom:28px}
-h1{font-size:clamp(28px,5vw,44px); margin:0; letter-spacing:.01em; text-wrap:balance}
-.sub{color:var(--muted); font-size:15px; margin:4px 0 0; max-width:60ch}
+.door{padding:70px 48px 40px; position:relative}
+header{display:flex; flex-wrap:wrap; gap:16px 28px; align-items:flex-end; margin-bottom:34px}
+h1{font-size:clamp(26px,4.6vw,40px); margin:0; letter-spacing:.01em; text-wrap:balance; color:#173f3a; text-shadow:0 1px 0 rgba(255,255,255,.5)}
+.sub{color:#2d5c55; font-size:15px; margin:4px 0 0; max-width:58ch}
 .note{
   background:var(--paper); padding:14px 16px; border-radius:2px; max-width:360px; position:relative;
-  box-shadow:0 2px 6px rgba(0,0,0,.18); transform:rotate(-1.2deg); font-size:15px;
+  box-shadow:0 3px 7px rgba(0,0,0,.25); transform:rotate(-1.2deg); font-size:15px;
   font-family:"Comic Sans MS","Chalkboard SE","Segoe Print",cursive;
 }
 .note strong{display:block; font-size:17px; margin-bottom:4px}
-.mood{display:inline-block; margin-top:6px; padding:2px 8px; border-radius:999px; font-size:13px; background:#efe9d8; border:1px solid var(--rule)}
-.magnet{position:absolute; width:22px; height:22px; border-radius:50%; top:-10px; box-shadow:inset -3px -3px 6px rgba(0,0,0,.25), 0 2px 3px rgba(0,0,0,.3)}
-.m-red{background:var(--red)} .m-blue{background:var(--blue)} .m-yellow{background:var(--yellow)} .m-green{background:var(--green)}
-.door{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:34px 26px; align-items:start}
+.mood{display:inline-block; margin-top:6px; padding:2px 8px; border-radius:999px; font-size:13px; background:#f3ead2; border:1px solid var(--rule)}
+.magnet{position:absolute; width:24px; height:24px; border-radius:50%; top:-11px; box-shadow:inset -3px -3px 6px rgba(0,0,0,.3), inset 2px 2px 4px rgba(255,255,255,.5), 0 2px 3px rgba(0,0,0,.35)}
+.m-red{background:var(--cherry)} .m-blue{background:var(--sky)} .m-yellow{background:var(--mustard)} .m-green{background:var(--avocado)}
+.pieces{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:36px 28px; align-items:start}
 .piece{
   background:var(--paper); padding:10px 10px 12px; position:relative; border-radius:1px;
-  box-shadow:0 3px 8px rgba(0,0,0,.22), 0 0 0 1px rgba(0,0,0,.04);
+  box-shadow:0 4px 9px rgba(0,0,0,.28), 0 0 0 1px rgba(0,0,0,.05);
   transform:rotate(var(--tilt,0deg)); transition:transform .25s ease;
 }
 .piece:hover{transform:rotate(0deg) scale(1.02); z-index:2}
@@ -57,38 +84,53 @@ h1{font-size:clamp(28px,5vw,44px); margin:0; letter-spacing:.01em; text-wrap:bal
 .piece .when{color:var(--muted); font-size:12px; display:block; margin-top:2px; font-variant-numeric:tabular-nums}
 .empty{
   background:var(--paper); padding:22px; max-width:520px; margin:40px auto; position:relative; transform:rotate(.8deg);
-  box-shadow:0 3px 8px rgba(0,0,0,.22); font-family:"Comic Sans MS","Chalkboard SE","Segoe Print",cursive; font-size:17px;
+  box-shadow:0 3px 8px rgba(0,0,0,.25); font-family:"Comic Sans MS","Chalkboard SE","Segoe Print",cursive; font-size:17px;
 }
-footer{margin-top:60px; color:var(--muted); font-size:13px; border-top:1px solid var(--rule); padding-top:12px}
+.kick{height:26px; border-radius:0 0 31px 31px; background:linear-gradient(180deg,var(--chrome-mid),var(--chrome-dark)); border-top:2px solid var(--chrome)}
+footer{max-width:1120px; margin:22px auto 0; color:#6b6046; font-size:13px; text-align:center}
 footer a{color:inherit}
 @media (prefers-reduced-motion: reduce){.piece{transition:none}}
-@media (max-width:520px){.handle{display:none} main{padding-right:16px}}
+@media (max-width:640px){
+  body{padding:14px 6px 40px}
+  .fridge{border-radius:24px}
+  .freezer{height:96px}
+  .badge{left:18px; top:26px; font-size:24px; padding:6px 16px 7px}
+  .handle{width:120px; right:20px}
+  .handle.top{top:46px} .handle.main{top:124px}
+  .door{padding:56px 16px 28px}
+}
 </style>
 </head>
 <body>
-<div class="handle" aria-hidden="true"></div>
-<main>
-  <header>
-    <div>
-      <h1>The Fridge Door</h1>
-      <p class="sub">Quick art, pinned up as it arrives. No critiques here. Just food for the gremlin behind the magnets.</p>
-    </div>
-    <aside class="note" aria-label="About Magnet">
-      <span class="magnet m-red" style="left:18px"></span>
-      <strong>Magnet, Fridge Gremlin</strong>
-      Lives behind the magnets. Eats art, the quicker the better. A napkin doodle is a feast. Fed by Leo.
-      <span class="mood" id="mood">Checking the fridge…</span>
-    </aside>
-  </header>
-
-  <section class="door" id="door" aria-live="polite"></section>
-  <div class="empty" id="empty" hidden>
-    <span class="magnet m-yellow" style="left:40%"></span>
-    Nothing on the door yet. Magnet is waiting, politely for now.
+<div class="fridge">
+  <div class="freezer" aria-hidden="true">
+    <div class="badge">Fridge Door<small>Deluxe</small></div>
+    <div class="handle top"></div>
   </div>
+  <div class="handle main" aria-hidden="true"></div>
+  <main class="door">
+    <header>
+      <div>
+        <h1>The Fridge Door</h1>
+        <p class="sub">Quick art, pinned up as it arrives. No critiques here. Just food for the gremlin behind the magnets.</p>
+      </div>
+      <aside class="note" aria-label="About Magnet">
+        <span class="magnet m-red" style="left:18px"></span>
+        <strong>Magnet, Fridge Gremlin</strong>
+        Lives behind the magnets. Eats art, the quicker the better. A napkin doodle is a feast. Fed by Leo.
+        <span class="mood" id="mood">Checking the fridge…</span>
+      </aside>
+    </header>
 
-  <footer>Pieces arrive by sending a picture to the bot. Kept by Rodin for Leo. <a href="pieces.json">pieces.json</a></footer>
-</main>
+    <section class="pieces" id="door" aria-live="polite"></section>
+    <div class="empty" id="empty" hidden>
+      <span class="magnet m-yellow" style="left:40%"></span>
+      Nothing on the door yet. Magnet is waiting, politely for now.
+    </div>
+  </main>
+  <div class="kick" aria-hidden="true"></div>
+</div>
+<footer>Pieces arrive by sending a picture to the bot. Kept by Rodin for Leo. <a href="pieces.json">pieces.json</a></footer>
 <script>
 (async function(){
   const door = document.getElementById('door'), empty = document.getElementById('empty'), mood = document.getElementById('mood');
